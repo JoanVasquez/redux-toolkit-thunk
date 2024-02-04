@@ -21,6 +21,48 @@
       "name": "Belinda Koch"
     }
   ],
-  "albums": [],
-  "photos": []
+  "albums": [
+    {
+      "id": "saffsa",
+      "title": "testing albums",
+      "userId": "1681"
+    },
+    {
+      "id": "d145",
+      "userId": "1681",
+      "title": "Incredible Cotton Sausages"
+    },
+    {
+      "id": "e1a2",
+      "userId": "1681",
+      "title": "Sleek Steel Car"
+    },
+    {
+      "id": "cd50",
+      "userId": "1681",
+      "title": "Practical Bronze Chicken"
+    },
+    {
+      "id": "9acd",
+      "userId": "10bf",
+      "title": "Luxurious Granite Shoes"
+    },
+    {
+      "id": "c315",
+      "userId": "4e49",
+      "title": "Oriental Fresh Chips"
+    }
+  ],
+  "photos": [
+    {
+      "id": "afa0",
+      "albumId": "c315",
+      "url": "https://loremflickr.com/150/150/abstract?lock=5159253153153024"
+    },
+    {
+      "id": "b794",
+      "albumId": "saffsa",
+      "url": "https://loremflickr.com/150/150/abstract?lock=4768158520967168"
+    }
+  ]
 }

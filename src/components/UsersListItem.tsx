@@ -21,7 +21,7 @@ const UsersListItem = ({ user }: UsersListItemProps) => {
     <>
       <Button
         className="mr-3"
-        variant="primary"
+        variant="danger"
         loading={isLoading}
         onClick={handleClick}
       >
