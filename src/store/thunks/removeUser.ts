@@ -7,6 +7,6 @@ export const removeUser = createAsyncThunk(
   "users/remove",
   async (id: number) => {
     const iCrudService: ICrudService<User> = new UserService();
-    iCrudService.delete!(id);
+    return iCrudService.delete!(id);
   }
 );

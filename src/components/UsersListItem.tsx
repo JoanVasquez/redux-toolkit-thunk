@@ -5,13 +5,15 @@ import { removeUser } from "../store";
 import Button from "./Button";
 import ExpandablePanel from "./ExpandablePanel";
 import AlbumsList from "./AlbumList";
+import { useSelector } from "react-redux";
 
 interface UsersListItemProps {
   user: User;
 }
 
 const UsersListItem = ({ user }: UsersListItemProps) => {
-  const [doRemoveUser, isLoading, error] = useThunk(removeUser);
+  const { isLoading, error } = useSelector((state: any) => state.users);
+  const [doRemoveUser] = useThunk(removeUser);
 
   const handleClick = () => {
     doRemoveUser(user.id);

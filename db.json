@@ -1,54 +1,58 @@
 {
   "users": [
     {
-      "name": "Mamie Turcotte",
-      "id": "7"
+      "id": "8667",
+      "name": "Amanda Mann"
     },
     {
-      "id": "4e49",
-      "name": "Dr. Laverne Homenick"
+      "id": "3b10",
+      "name": "Phillip Quigley"
     },
     {
-      "id": "10bf",
-      "name": "Bill Friesen"
+      "id": "9bb0",
+      "name": "Kerry Gottlieb"
     },
     {
-      "id": "1681",
-      "name": "Lowell Kiehn"
+      "id": "d7ce",
+      "name": "Philip Renner"
     },
     {
-      "id": "cb36",
-      "name": "Belinda Koch"
+      "id": "95d8",
+      "name": "Everett Monahan"
     },
     {
-      "id": "8d46",
-      "name": "Corey Gusikowski"
+      "id": "b370",
+      "name": "Kathryn Pagac"
+    },
+    {
+      "id": "f4a4",
+      "name": "Hannah Ruecker"
     }
   ],
   "albums": [
     {
       "id": "saffsa",
       "title": "testing albums",
-      "userId": "1681"
+      "userId": null
     },
     {
       "id": "e1a2",
-      "userId": "1681",
+      "userId": null,
       "title": "Sleek Steel Car"
     },
     {
       "id": "cd50",
-      "userId": "1681",
+      "userId": null,
       "title": "Practical Bronze Chicken"
     },
     {
       "id": "9acd",
-      "userId": "10bf",
+      "userId": null,
       "title": "Luxurious Granite Shoes"
     },
     {
       "id": "c315",
-      "userId": "4e49",
+      "userId": null,
       "title": "Oriental Fresh Chips"
     }
   ],

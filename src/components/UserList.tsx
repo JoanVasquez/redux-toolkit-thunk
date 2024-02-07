@@ -9,19 +9,19 @@ import Button from "./Button";
 import { faker } from "@faker-js/faker";
 
 const UserList = () => {
-  const [doFetchUsers, isLoadingUsers, loadingUsersError] =
+  const [doFetchUsers] =
     useThunk(fetchUsers);
-  const [doCreateUser, isCreatingUser, creatingUserError] = useThunk(addUser);
-  const { data } = useSelector((state: any) => state.users);
+  const [doCreateUser] = useThunk(addUser);
+  const { data, isLoading, error } = useSelector((state: any) => state.users);
 
   useEffect(() => {
     doFetchUsers();
   }, [doFetchUsers]);
 
   let content;
-  if (isLoadingUsers) {
+  if (isLoading) {
     content = <Skeleton times={6} className="h-10 w-full" />;
-  } else if (loadingUsersError) {
+  } else if (error) {
     content = <div>Error fetching data...</div>;
   } else {
     content = data.map((user: User) => {
@@ -42,12 +42,12 @@ const UserList = () => {
         <h1 className="m-2 text-xl">Users</h1>
         <Button
           variant="primary"
-          loading={isCreatingUser}
+          loading={isLoading}
           onClick={handleUserAdd}
         >
           + Add User
         </Button>
-        {creatingUserError && "Error creating user..."}
+        {error && "Error creating user..."}
       </div>
       {content}
     </div>
