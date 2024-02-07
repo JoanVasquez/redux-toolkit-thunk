@@ -11,17 +11,14 @@ import { faker } from "@faker-js/faker";
 const UserList = () => {
   const [doFetchUsers] = useThunk(fetchUsers);
   const [doCreateUser] = useThunk(addUser);
-  const { data, isLoading, error } = useSelector((state: any) => state.users);
-  const [isFetching, setIsFetching] = useState<boolean>(false);
+  const { data, isFetching, isLoading, error } = useSelector((state: any) => state.users);
 
   useEffect(() => {
-    setIsFetching(true);
     doFetchUsers();
-    setIsFetching(false);
   }, [doFetchUsers]);
 
   let content;
-  if (isLoading && isFetching) {
+  if (isFetching) {
     content = <Skeleton times={6} className="h-10 w-full" />;
   } else if (error) {
     content = <div>{error}</div>;

@@ -6,18 +6,21 @@ import { addUser } from "../thunks/addUser";
 import {
   addingReducer,
   fetchingReducer,
+  isFetchingReducer,
   loadingReducer,
   rejectedReducer,
   removeReducer,
 } from "../../utils/reducerUtil";
 
 interface stateProps {
+  isFetching: boolean;
   isLoading: boolean;
   data: Array<User>;
   error: string;
 }
 
 const initialState: stateProps = {
+  isFetching: false,
   isLoading: false,
   data: [],
   error: "",
@@ -28,7 +31,7 @@ export const usersSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder.addCase(fetchUsers.pending, loadingReducer);
+    builder.addCase(fetchUsers.pending, isFetchingReducer);
     builder.addCase(fetchUsers.fulfilled, fetchingReducer);
     builder.addCase(fetchUsers.rejected, rejectedReducer);
     builder.addCase(addUser.pending, loadingReducer);

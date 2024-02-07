@@ -1,13 +1,18 @@
+export const isFetchingReducer = (state: any, action: any) => {
+  state.isFetching = true
+}
+
 export const loadingReducer = (state: any, action: any) => {
   state.isLoading = true;
 };
 
 export const fetchingReducer = (state: any, action: any) => {
-  state.isLoading = false;
+  state.isFetching = false;
   state.data = action.payload;
 };
 
 export const rejectedReducer = (state: any, action: any) => {
+  state.isFetching = false;
   state.isLoading = false;
   state.error = action.error;
 };
