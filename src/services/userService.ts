@@ -9,14 +9,14 @@ export class UserService implements ICrudService<User> {
       url: `${USER_ENDPOINTS}`,
       method: "POST",
       data,
-    });
+    } as axiosConfig);
   }
 
   delete(id: number): Promise<any> {
     return axiosUtil({
       url: `${USER_ENDPOINTS}/${id}`,
       method: "DELETE",
-    });
+    } as axiosConfig);
   }
 
   findAll(): Promise<User[]> {

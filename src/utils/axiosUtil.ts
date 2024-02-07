@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 export interface axiosConfig {
   url: string;
@@ -10,7 +10,7 @@ export interface axiosConfig {
 
 export const axiosUtil = async (config: axiosConfig) => {
   try {
-    const response: any = await axios(config);
+    const response: AxiosResponse = await axios(config);
     return response.data;
   } catch (error: any) {
     return error.message;
