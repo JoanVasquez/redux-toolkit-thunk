@@ -12,7 +12,7 @@ interface UsersListItemProps {
 }
 
 const UsersListItem = ({ user }: UsersListItemProps) => {
-  const { isLoading, error } = useSelector((state: any) => state.users);
+  const { isLoading } = useSelector((state: any) => state.users);
   const [doRemoveUser] = useThunk(removeUser);
 
   const handleClick = () => {
@@ -29,7 +29,6 @@ const UsersListItem = ({ user }: UsersListItemProps) => {
       >
         <GoTrash />
       </Button>
-      {error && <div>Error deleting user.</div>}
       {user.name}
     </>
   );

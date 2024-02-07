@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useThunk } from "../hooks/useThunk";
 import { addUser, fetchUsers } from "../store";
 import { useSelector } from "react-redux";
@@ -9,20 +9,22 @@ import Button from "./Button";
 import { faker } from "@faker-js/faker";
 
 const UserList = () => {
-  const [doFetchUsers] =
-    useThunk(fetchUsers);
+  const [doFetchUsers] = useThunk(fetchUsers);
   const [doCreateUser] = useThunk(addUser);
   const { data, isLoading, error } = useSelector((state: any) => state.users);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
 
   useEffect(() => {
+    setIsFetching(true);
     doFetchUsers();
+    setIsFetching(false);
   }, [doFetchUsers]);
 
   let content;
-  if (isLoading) {
+  if (isLoading && isFetching) {
     content = <Skeleton times={6} className="h-10 w-full" />;
   } else if (error) {
-    content = <div>Error fetching data...</div>;
+    content = <div>{error}</div>;
   } else {
     content = data.map((user: User) => {
       return <UsersListItem key={user.id} user={user} />;
@@ -40,14 +42,9 @@ const UserList = () => {
     <div>
       <div className="flex flex-row justify-between items-center m-3">
         <h1 className="m-2 text-xl">Users</h1>
-        <Button
-          variant="primary"
-          loading={isLoading}
-          onClick={handleUserAdd}
-        >
+        <Button variant="primary" loading={isLoading} onClick={handleUserAdd}>
           + Add User
         </Button>
-        {error && "Error creating user..."}
       </div>
       {content}
     </div>
