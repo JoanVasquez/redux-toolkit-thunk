@@ -11,7 +11,6 @@ export interface axiosConfig {
 export const axiosUtil = async (config: axiosConfig) => {
   try {
     const response: any = await axios(config);
-
     return response.data;
   } catch (error: any) {
     return error.message;

@@ -23,7 +23,7 @@ const initialState: stateProps = {
   error: "",
 };
 
-const usersSlice = createSlice({
+export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {},
@@ -40,4 +40,3 @@ const usersSlice = createSlice({
   },
 });
 
-export const usersReducer = usersSlice.reducer;
